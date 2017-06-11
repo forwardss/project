@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">
+
+		</div>
+	</div>
+	<script src="/jquery-2.2.0.js"></script>
+	<script>
+		$(function(){
+			const url = window.location.search.split("=")[1];;
+			$.ajax({
+				url:"Cont",
+				type:"post",
+				data:{url:url},
+				success:function(data){
+					$(".main").html(data.data[0].content)
+				}
+			})
+		})
+	</script>
+</body>
+</html>

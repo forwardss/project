@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="wrapper-big-tit">
+			<h1>个人博客</h1>
+		</div>
+		<div class="content">
+			<div class="con-tit">
+				<h2>学习分类列表</h2>
+			</div>
+			<div class="con-list">
+				<ul class="list">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="/jquery-2.2.0.js"></script>
+<script>
+	$(function(){
+		$.ajax({
+			url:"/list",
+			success:function(data){
+				if(data.code){
+					let dom='';
+					for(let [ind,item] of data.data.entries()){
+						dom+=`<li><a href="http://localhost:8011/content?id=${item.url}"> ${item.title}</li> </a>`
+					}
+					$(".list").html(dom);
+				}
+			}
+		})
+	})
+</script>
+</html>
