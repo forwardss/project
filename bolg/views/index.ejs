@@ -19,6 +19,9 @@
 
 				</ul>
 			</div>
+			<div id="tit" class="add " contenteditable="true"></div>
+			<div id="content" class="add " contenteditable="true"></div>
+			<button id="addBtn">添加</button>
 		</div>
 	</div>
 </body>
@@ -31,11 +34,27 @@
 				if(data.code){
 					let dom='';
 					for(let [ind,item] of data.data.entries()){
-						dom+=`<li><a href="http://localhost:8011/content?id=${item.url}"> ${item.title}</li> </a>`
+						dom+=`<li><a href="http://localhost:8011/content?id=${item.url}"> ${item.title}</li></a>`
 					}
 					$(".list").html(dom);
 				}
 			}
+		})
+		$(".wrapper").on("click","#addBtn", function(){
+			let con = $("#content").text();
+			let tit = $("#tit").text();
+			let date = new Date()*1;
+			$.ajax({
+				url:"/add",
+				type:"post",
+				data:{con:con,tit:tit,date:date},
+				success:function(msg){
+					if(msg.code){
+						location.reload();
+					}
+				}
+			})
+
 		})
 	})
 </script>
