@@ -19,7 +19,9 @@
 
 				</ul>
 			</div>
-			<div id="tit" class="add " contenteditable="true"></div>
+			<b>标题:</b>
+			<div id="tit" class="add" contenteditable="true"></div>
+			<b>内容:</b>
 			<div id="content" class="add " contenteditable="true"></div>
 			<button id="addBtn">添加</button>
 		</div>
@@ -34,27 +36,27 @@
 				if(data.code){
 					let dom='';
 					for(let [ind,item] of data.data.entries()){
-						dom+=`<li><a href="http://localhost:8011/content?id=${item.url}"> ${item.title}</li></a>`
+						dom+=`<li><span class="view">浏览<span class="num">${item.num}</span>次</span><a href="http://localhost:8011/content?id=${item.No}"> ${item.title}</a> </li>`
 					}
 					$(".list").html(dom);
+					console.log(history)
 				}
 			}
 		})
+		let date = new Date()*1;
 		$(".wrapper").on("click","#addBtn", function(){
 			let con = $("#content").text();
 			let tit = $("#tit").text();
-			let date = new Date()*1;
 			$.ajax({
 				url:"/add",
 				type:"post",
-				data:{con:con,tit:tit,date:date},
+				data:{con:con,tit:tit,dates:date},
 				success:function(msg){
 					if(msg.code){
 						location.reload();
 					}
 				}
 			})
-
 		})
 	})
 </script>

@@ -6,9 +6,11 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="wrapper">
+	<div class="wrap">
 		<div class="main">
+			<div class="header">
 
+			</div>
 		</div>
 	</div>
 	<script src="/jquery-2.2.0.js"></script>
@@ -20,7 +22,11 @@
 				type:"post",
 				data:{url:url},
 				success:function(data){
-					$(".main").html(data.data[0].content)
+					if(data.msg){
+						$(".main").html(data.data[0].content);
+						console.log(history)
+					}
+
 				}
 			})
 		})

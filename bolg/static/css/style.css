@@ -5,6 +5,13 @@
 body{
 	background: #26252A;
 }
+.wrap{
+	width: 800px;
+	height: 500px;
+	margin: 40px auto;
+	background: #fff;
+	padding:20px 0;
+}
 .wrapper{
 	width: 800px;
 	margin: 40px auto;
@@ -37,11 +44,29 @@ li{
 	height: 100px;
 	border:1px solid #ccc;
 }
+b{
+	margin-left:12px;
+}
+.view{
+	float: right;
+	margin-right:20px;
+	color:#000;
+}
+#tit{
+	margin:10px 0;
+	height: 50px;
+	margin-left:10px;
+}
 #content{
-	margin-top:10px;
+	margin:10px 0;
+	margin-left:10px;
 }
 #addBtn{
 	width: 80px;
 	height: 30px;
 	margin-top:10px;
+	margin-left:10px;
+}
+.num{
+	padding:0 5px;
 }
