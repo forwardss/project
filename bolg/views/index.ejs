@@ -39,18 +39,16 @@
 						dom+=`<li><span class="view">浏览<span class="num">${item.num}</span>次</span><a href="http://localhost:8011/content?id=${item.No}"> ${item.title}</a> </li>`
 					}
 					$(".list").html(dom);
-					console.log(history)
 				}
 			}
 		})
-		let date = new Date()*1;
 		$(".wrapper").on("click","#addBtn", function(){
 			let con = $("#content").text();
 			let tit = $("#tit").text();
 			$.ajax({
 				url:"/add",
 				type:"post",
-				data:{con:con,tit:tit,dates:date},
+				data:{con:con,tit:tit},
 				success:function(msg){
 					if(msg.code){
 						location.reload();
